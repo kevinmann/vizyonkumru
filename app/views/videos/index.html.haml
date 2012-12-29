@@ -1,0 +1,35 @@
+%h1 Listing videos
+
+%table
+  %tr
+    %th User
+    %th Category
+    %th Title
+    %th Subtitle
+    %th Caption
+    %th Share code
+    %th Featured
+    %th Link
+    %th Downloadable
+    %th
+    %th
+    %th
+
+  - @videos.each do |video|
+    %tr
+      %td= video.user_id
+      %td= video.category_id
+      %td= video.title
+      %td= video.subtitle
+      %td= video.caption
+      %td= video.share_code
+      %td= video.featured
+      %td= video.link
+      %td= video.downloadable
+      %td= link_to 'Show', video
+      %td= link_to 'Edit', edit_video_path(video)
+      %td= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Video', new_video_path

@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @video.user_id
+%p
+  %b Category:
+  = @video.category_id
+%p
+  %b Title:
+  = @video.title
+%p
+  %b Subtitle:
+  = @video.subtitle
+%p
+  %b Caption:
+  = @video.caption
+%p
+  %b Share code:
+  = @video.share_code
+%p
+  %b Featured:
+  = @video.featured
+%p
+  %b Link:
+  = @video.link
+%p
+  %b Downloadable:
+  = @video.downloadable
+
+= link_to 'Edit', edit_video_path(@video)
+\|
+= link_to 'Back', videos_path
