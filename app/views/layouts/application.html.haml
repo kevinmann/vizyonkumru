@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    %script{:src => "//use.typekit.net/yyw1fzv.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
+
+  %body
+    = yield 
+
+    /= render :partial => "shared/social_code"
