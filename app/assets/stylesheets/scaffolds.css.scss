@@ -1,5 +1,5 @@
 body {
-  background-color: #fff;
+  background-color: #212121;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
@@ -67,3 +67,114 @@ div {
     list-style: square;
   }
 }
+
+
+.titles {
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #ececec;
+}
+
+h1.titles {
+  font-size: 50px;
+}
+
+h2.titles {
+  font-size: 36px;
+}
+
+.video .caption{
+  color: #ececec;
+  background-color: #323233;
+  width: 550px;
+  padding: 0px 20px 5px 20px;
+  border-top: 5px solid #f05dad;
+  height: 140px;
+  overflow: hidden;
+}
+
+.video .buttons {
+  line-height: 1.2;
+  color: #ececec;
+  background-color: #323233;
+  text-transform: uppercase;
+  margin-top: 5px;
+  width: 550px;
+  min-height: 35px;
+  max-height: 35px;
+  padding: 7px 20px 0px 20px;
+}
+
+.video .buttons a{
+  font-size: 24px;
+  color: #ececec;
+  margin-right: 10px;
+}
+
+[class*="cust-span"] {
+  float: left;
+  min-height: 1px;
+  margin-left: 10px;
+}
+
+.cust-span-featured {
+  width: 590px;
+}
+
+.cust-span-thumbs {
+  width: 350px;
+}
+
+.thumb {
+  float: left;
+  overflow: hidden;
+  position: relative;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  width: 170px;
+  height: 170px;
+  background-color: #323233;
+
+}
+
+.thumb.first {
+  margin-left: 20px;
+}
+
+.thumb .overlay{
+  position: absolute;
+  bottom: 0px;
+  height: 55px;
+  width: 100%;
+  background-color: #323233;
+  border-top: 5px solid #f05dad;
+}
+
+.thumb .overlay h3{
+  font-size: 18px;
+  margin: 10px;
+  line-height: 18px;
+}
+
+.header{
+  margin-left: -10px;
+  margin-bottom: 40px;
+  margin-top: 60px;
+}
+
+.header-links{
+  padding-top: 66px;
+  text-align: right;
+}
+
+.header-links a{
+  color: #f05dad;
+}
+
+.header a{
+  color: #f05dad;
+  font-size: 62px;
+  font-family: Helvetica Neue;
+  font-weight: bold;
+}
+
