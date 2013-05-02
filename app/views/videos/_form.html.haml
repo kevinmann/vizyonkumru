@@ -7,17 +7,17 @@
           %li= msg
 
   .field
-    = f.label :user_id
-    = f.number_field :user_id
+    = f.label :featured
+    = f.check_box :featured
   .field
     = f.label :category_id
-    = f.number_field :category_id
+    = f.select :category_id, options_from_collection_for_select(Category.all, :id, :name), :prompt => "Select Category"
+  .field
+    = f.label :video_type
+    = f.text_field :video_type
   .field
     = f.label :title
     = f.text_field :title
-  .field
-    = f.label :subtitle
-    = f.text_field :subtitle
   .field
     = f.label :caption
     = f.text_area :caption
@@ -25,13 +25,16 @@
     = f.label :share_code
     = f.text_field :share_code
   .field
-    = f.label :featured
-    = f.check_box :featured
-  .field
     = f.label :link
     = f.text_field :link
   .field
-    = f.label :downloadable
-    = f.text_field :downloadable
+    = f.label :thumbnail
+    = f.text_field :thumbnail
+  / .field
+  /   = f.label :downloadable
+  /   = f.text_field :downloadable
+  .field
+    = f.label :user_id
+    = f.number_field :user_id
   .actions
     = f.submit 'Save'

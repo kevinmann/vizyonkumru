@@ -1,6 +1,6 @@
 body {
   background-color: #212121;
-  color: #333;
+  color: #ececec;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -21,11 +21,10 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+    color: #fff;
   }
   &:hover {
     color: #fff;
-    background-color: #000;
   }
 }
 
@@ -93,12 +92,23 @@ h2.titles {
   overflow: hidden;
 }
 
+.video .full-caption{
+  color: #ececec;
+  background-color: #323233;
+  width: 550px;
+  padding: 0px 20px 5px 20px;
+  border-top: 5px solid #f05dad;
+  height: auto;
+  overflow: auto;
+}
+
 .video .buttons {
   line-height: 1.2;
   color: #ececec;
   background-color: #323233;
   text-transform: uppercase;
   margin-top: 5px;
+  margin-bottom: 10px;
   width: 550px;
   min-height: 35px;
   max-height: 35px;
@@ -178,3 +188,22 @@ h2.titles {
   font-weight: bold;
 }
 
+.thumb img {
+  margin-left: -30%;
+  max-width: 150%;
+  margin-top: -15%;
+}
+
+.field textarea, .field input, textarea {
+  width: 400px;
+}
+
+.fill-width{
+  width: 100% !important;
+}
+
+.new-btn a:visited, .new-btn a:hover{
+  color: #fff;
+  text-decoration: none;
+  background: none;
+}

@@ -5774,9 +5774,19 @@ a.badge:hover {
 }
 
 .mtl {
-  margin-top: 40px;
+  margin-top: 40px !important; 
 }
 
 .mtm {
-  margin-top: 20px;
+  margin-top: 20px !important;
+}
+
+.mbm {
+  margin-bottom: 20px !important;
+}
+.mbs {
+  margin-bottom: 10px !important;
+}
+.mbn {
+  margin-bottom: 0px !important;
 }

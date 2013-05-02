@@ -1,35 +1,36 @@
-%h1 Listing videos
+.container
+  .btn.btn-primary.mbm.new-btn
+    = link_to 'New Video', new_video_path 
+  %h1 Listing videos
+  .col12
+    %table.table
+      %thead
+        %tr
+          %th User
+          %th Category
+          %th Title
+          %th Type
+          //%th Caption
+          %th Featured
+          %th Link
+          %th Video Id
+          %th
+          %th
+      %tbody
+        - @videos.each do |video|
+          %tr
+            %td= video.user.name
+            %td= video.category.name
+            %td= video.title
+            %td= video.video_type
+            //%td= video.caption
+            %td= video.featured
+            %td= video.link
+            %td= video.share_code
+            %td= link_to 'Show', video
+            %td= link_to 'Edit', edit_video_path(video)
+            %td= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }
 
-%table
-  %tr
-    %th User
-    %th Category
-    %th Title
-    %th Subtitle
-    %th Caption
-    %th Share code
-    %th Featured
-    %th Link
-    %th Downloadable
-    %th
-    %th
-    %th
+    %br
 
-  - @videos.each do |video|
-    %tr
-      %td= video.user_id
-      %td= video.category_id
-      %td= video.title
-      %td= video.subtitle
-      %td= video.caption
-      %td= video.share_code
-      %td= video.featured
-      %td= video.link
-      %td= video.downloadable
-      %td= link_to 'Show', video
-      %td= link_to 'Edit', edit_video_path(video)
-      %td= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' }
 
-%br
-
-= link_to 'New Video', new_video_path

@@ -1,5 +1,40 @@
-%h1 New video
+.container
+  %h1 New video
 
-= render 'form'
+  %form.mbn
+    %fieldset
+      %div
+        %label{:for => "video_input"} Video Url
+        %input#video_type{:placeholder => "YouTube or Vimeo:", :name => "video_type"}
+        %label{:for => "video_input"} Video Url
+        %textarea#video_input{:placeholder => "Paste in a video URL (YouTube or Vimeo)", :name => "video_input"}
 
-= link_to 'Back', videos_path
+  = link_to "Find Video", '#', :class => "btn btn-primary mbm", :id => "btn-find-video"
+  
+  #videoPreview
+  
+  #video-details.hide
+    = render 'form'
+
+  = link_to 'Back', videos_path
+
+
+:javascript
+
+  $(document).ready(function() {
+
+    $('#btn-find-video').off().on("click", function(e){
+      e.preventDefault();
+      if($('#video_type').val().toUpperCase() == "VIMEO"){
+        vizyonJs.getVimeoVideo($('#video_input').val());
+      }
+      else if($('#video_type').val().toUpperCase() == "YOUTUBE"){
+        vizyonJs.getYoutubeVideo($('#video_input').val());
+      }
+      else{
+        alert("Not Youtube or Vimeo")
+      }
+    });
+
+
+  });

@@ -1,24 +1,17 @@
 .container
   .row
-    .span6
-      .header.tk-futura-pt-condensed
-        = link_to "Vizyonkumru", "#"
-    .span6.header-links
-      = link_to "Music Videos :: ", "#"
-      = link_to "Short Movies ::", "#"
-      = link_to "Teaching ::", "#"
-      = link_to "About", "#"
-.container
-  .row
     .cust-span-featured
       %h1.titles.tk-futura-pt-condensed
         Featured Video
       .video.mtm
         .media
-          == <iframe src="http://player.vimeo.com/video/63973574" width="590" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          - if @videos.last.video_type == "Youtube"
+            == <iframe width="590" height="330" src="http://www.youtube.com/embed/#{@videos.last.share_code}" frameborder="0" allowfullscreen></iframe>
+          - else
+            == <iframe src="http://player.vimeo.com/video/#{@videos.last.share_code}" width="590" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         .caption
-          %h2.titles.tk-futura-pt-condensed Hakkımı Aramam
-          %p Sevgili kardeşler, kimseden öc almayın; bunu Tanrı'nın gazabına bırakın. Çünkü şöyle yazılmıştır: "Rab diyor ki, 'Öc benimdir, ben karşılık vereceğimç'" Romalılar 12:19
+          %h2.titles.tk-futura-pt-condensed #{@videos.last.title}
+          %p #{@videos.last.caption}
         .buttons.tk-futura-pt-condensed
           = link_to "Download", "#"
           = link_to "Share", "#" 
@@ -27,38 +20,18 @@
       %h1.titles.tk-futura-pt-condensed
         Newest videos
       .row.mtm
-        .thumb.first
-          .overlay
-            %h3.titles.tk-futura-pt-condensed
-              Ağlayan Peygamber Yeremya 05 - Bölüm 2
-          %img{:alt => "", :src => "http://placekitten.com/170/170"}
-          
-        .thumb
-          .overlay
-            %h3.titles.tk-futura-pt-condensed
-              Sevgili Doktor Luka 17 - Bölüm 1
-          %img{:alt => "", :src => "http://placekitten.com/180/180"}
-      .row
-        .thumb.first
-          .overlay
-            %h3.titles.tk-futura-pt-condensed
-              Tüm Arzum Sensin
-          %img{:alt => "", :src => "http://placekitten.com/200/200"}
-          
-        .thumb
-          .overlay
-            %h3.titles.tk-futura-pt-condensed
-              Ne Mutludur
-          %img{:alt => "", :src => "http://placekitten.com/210/210"}
-      .row
-        .thumb.first
-          .overlay
-            %h3.titles.tk-futura-pt-condensed
-              Kuşbakışı İsanın Doğumu 
-          %img{:alt => "", :src => "http://placekitten.com/175/175"}
-          
-        .thumb
-          .overlay
-            %h3.titles.tk-futura-pt-condensed
-              Yaratılış Kitabı - Suları Birbirinden Ayıran Bö ...
-          %img{:alt => "", :src => "http://placekitten.com/170/170"}
+        - @videos.last(6).each do |video|
+          -if cycle('odd', 'even') == 'odd'
+            %a{:href => "/videos/#{video.id}", :style => "display:block"}
+              .thumb.first
+                .overlay
+                  %h3.titles.tk-futura-pt-condensed
+                    = video.title
+                %img{:alt => "", :src => "#{video.thumbnail}"}
+          -else 
+            %a{:href => "/videos/#{video.id}", :style => "display:block"} 
+              .thumb
+                .overlay
+                  %h3.titles.tk-futura-pt-condensed
+                    = video.title
+                %img{:alt => "", :src => "#{video.thumbnail}"}
