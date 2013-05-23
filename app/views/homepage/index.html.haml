@@ -2,7 +2,7 @@
   .row
     .cust-span-featured
       %h1.titles.tk-futura-pt-condensed
-        Featured Video
+        Özel video
       .video.mtm
         .media
           - if @videos.last.video_type == "Youtube"
@@ -18,7 +18,7 @@
 
     .cust-span-thumbs
       %h1.titles.tk-futura-pt-condensed
-        Newest videos
+        En son videolar
       .row.mtm
         - @videos.last(6).each do |video|
           -if cycle('odd', 'even') == 'odd'
