@@ -5,13 +5,15 @@
         Özel video
       .video.mtm
         .media
-          - if @videos.last.video_type == "Youtube"
-            == <iframe width="590" height="330" src="http://www.youtube.com/embed/#{@videos.last.share_code}" frameborder="0" allowfullscreen></iframe>
+          - @featureVideo = @videos.select { |video| video.featured == true } .first
+
+          - if @featureVideo.video_type == "Youtube"
+            == <iframe width="590" height="330" src="http://www.youtube.com/embed/#{@featureVideo.share_code}" frameborder="0" allowfullscreen></iframe>
           - else
-            == <iframe src="http://player.vimeo.com/video/#{@videos.last.share_code}" width="590" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            == <iframe src="http://player.vimeo.com/video/#{@featureVideo.share_code}" width="590" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         .caption
-          %h2.titles.tk-futura-pt-condensed #{@videos.last.title}
-          %p #{@videos.last.caption}
+          %h2.titles.tk-futura-pt-condensed #{@featureVideo.title}
+          %p #{@featureVideo.caption}
         .buttons.tk-futura-pt-condensed
           = link_to "Download", "#"
           = link_to "Share", "#" 
