@@ -13,11 +13,12 @@
         .span6
           .header.tk-futura-pt-condensed
             = link_to "Vizyonkumru", root_path
-        / .span6.header-links
-        /   = link_to "Music Videos :: ", "#"
-        /   = link_to "Short Movies ::", "#"
-        /   = link_to "Teaching ::", "#"
-        /   = link_to "About", "#"
+        .span6.header-links
+          = link_to "Ev :: ", "/"
+          = link_to "Müzik :: ", "/categories/1"
+          = link_to "Öğretiş ::", "/categories/2"
+          = link_to "Kısa Film", "/categories/3"
+         
     = yield 
 
     /= render :partial => "shared/social_code"

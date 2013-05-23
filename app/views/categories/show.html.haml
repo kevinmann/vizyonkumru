@@ -1,9 +1,21 @@
-%p#notice= notice
+.container
+  .row
+    .cust-span-featured
+    - @videos.each do |featureVideo|
+      .video.mtm
+        .media
+          - if featureVideo.video_type == "Youtube"
+            == <iframe width="590" height="330" src="http://www.youtube.com/embed/#{featureVideo.share_code}" frameborder="0" allowfullscreen></iframe>
+          - else
+            == <iframe src="http://player.vimeo.com/video/#{featureVideo.share_code}" width="590" height="330" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          .caption
+            %h2.titles.tk-futura-pt-condensed #{featureVideo.title}
+            %p #{featureVideo.caption}
+          .buttons.tk-futura-pt-condensed
+            = link_to "Download", "#"
+            = link_to "Share", "#" 
 
-%p
-  %b Name:
-  = @category.name
 
-= link_to 'Edit', edit_category_path(@category)
-\|
-= link_to 'Back', categories_path
+/ = link_to 'Edit', edit_category_path(@category)
+/ \|
+/ = link_to 'Back', categories_path
