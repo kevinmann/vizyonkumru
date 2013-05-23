@@ -14,9 +14,12 @@
           .header.tk-futura-pt-condensed
             = link_to "Vizyonkumru", root_path
         .span6.header-links
-          = link_to "Ev :: ", "/"
-          = link_to "Müzik :: ", "/categories/1"
-          = link_to "Öğretiş ::", "/categories/3"
+          = link_to "Ana sayfa", "/"
+          = " :: "
+          = link_to "Müzik", "/categories/1"
+          = " :: " 
+          = link_to "Öğretiş", "/categories/3"
+          = " :: "
           = link_to "Kısa Film", "/categories/2"
          
     = yield 
